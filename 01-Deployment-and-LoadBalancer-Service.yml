@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: app1-nginx
-          image: venacraks.azurecr.io/mydockerapp:51
+          image: venacraks.azurecr.io/vencapstoneproj:$(Build.BuildId)
           ports:
             - containerPort: 8080
 ---

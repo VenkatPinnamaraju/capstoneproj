@@ -1,0 +1,7 @@
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Release\net8.0\PubTmp\Out\capstoneproj.exe
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Release\net8.0\PubTmp\Out\appsettings.Development.json
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Release\net8.0\PubTmp\Out\appsettings.json
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Release\net8.0\PubTmp\Out\capstoneproj.dll
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Release\net8.0\PubTmp\Out\capstoneproj.deps.json
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Release\net8.0\PubTmp\Out\capstoneproj.runtimeconfig.json
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Release\net8.0\PubTmp\Out\capstoneproj.pdb

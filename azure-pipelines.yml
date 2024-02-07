@@ -42,15 +42,5 @@ stages:
         targetPath: '$(Pipeline.Workspace)'
         artifact: 'drop'
         publishLocation: 'pipeline'
-    - task: SonarCloudPrepare@1
-      inputs:
-        SonarCloud: 'SonarCloud'
-        organization: 'venkatacapstone'
-        scannerMode: 'CLI'
-        configMode: 'file'
-    - task: SonarCloudAnalyze@1
-      
-    - task: SonarCloudPublish@1
-      inputs:
-        pollingTimeoutSec: '300'
+
 

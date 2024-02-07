@@ -42,3 +42,9 @@ stages:
         targetPath: '$(Pipeline.Workspace)'
         artifact: 'drop'
         publishLocation: 'pipeline'
+    - task: SonarCloudAnalyze@1
+      
+    - task: SonarCloudPublish@1
+      inputs:
+        pollingTimeoutSec: '300'
+

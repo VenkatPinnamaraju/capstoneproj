@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ven-web-app-staging-deployment
+  labels:
+    app: ven-web-app-staging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ven-web-app-staging
+  template:
+    metadata:
+      labels:
+        app: ven-web-app-staging
+    spec:
+      containers:
+        - name: ven-web-app-staging
+          image: venacraks.azurecr.io/vencapstoneproj:$(Build.BuildId)
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              cpu: "0.5"
+              memory: "512Mi"
+            requests:
+              cpu: "0.1"
+              memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ven-web-app-staging-loadbalancer-service
+  labels:
+    app: ven-web-app-staging
+spec:
+  type: LoadBalancer
+  selector:
+    app: ven-web-app-staging
+  ports:
+    - port: 8083
+      targetPort: 8080
+
+
+

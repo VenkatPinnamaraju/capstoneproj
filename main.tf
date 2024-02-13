@@ -25,6 +25,48 @@ resource "azurerm_resource_group" "ven1_aks_rg" {
   location = "UK South"
 }
 
+data "azurerm_client_config" "current" {}
+
+resource "azurerm_key_vault" "keyvault" {
+  name                        = var.keyvault_name
+  location                    = azurerm_resource_group.ven1_aks_rg.location
+  resource_group_name         = var.resource_group_name
+  enabled_for_disk_encryption = false
+  tenant_id                   = data.azurerm_client_config.current.tenant_id
+  soft_delete_retention_days  = 7
+  purge_protection_enabled    = false
+
+    sku_name = "standard"
+
+  access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+
+    key_permissions = [
+      "Get",
+    ]
+
+    secret_permissions = [
+      "Get",
+      "List",
+      "Set",
+      "Delete"
+    ]
+
+    storage_permissions = [
+      "Get",
+    ]
+  }
+depends_on = [ azurerm_resource_group.ven1_aks_rg ]
+  
+}
+
+resource "azurerm_key_vault_secret" "client-pwd" {
+  name         = var.secret_name
+  value        = var.secret_value
+  key_vault_id = azurerm_key_vault.keyvault.id
+}
+
 resource "azurerm_kubernetes_cluster" "ven1_aks" {
   name                = var.cluster_name
   location            = azurerm_resource_group.ven1_aks_rg.location
@@ -39,17 +81,9 @@ resource "azurerm_kubernetes_cluster" "ven1_aks" {
 
   service_principal {
     client_id     = "990b7bfc-6f00-48b1-941e-58476eeaf976"
-    client_secret = "iJO8Q~yxUiuOuM1uRUq3ZYQWb1Mh9ifh3fRhicAw"
+    client_secret = azurerm_key_vault_secret.client-pwd.value
   }
+  depends_on = [ azurerm_resource_group.ven1_aks_rg, azurerm_key_vault_secret.client-pwd ]
 }
 
-resource "azurerm_kubernetes_cluster_node_pool" "ven1_np" {
-  name                  = "vennp1"
-  kubernetes_cluster_id = azurerm_kubernetes_cluster.ven1_aks.id
-  vm_size               = "Standard_DS2_v2"
-  node_count            = 1
 
-  tags = {
-    Environment = "test"
-  }
-}

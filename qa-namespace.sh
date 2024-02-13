@@ -10,7 +10,7 @@ AKS_RESOURCE_GROUP="ven-aks-rg-dev"
 AKS_CLUSTER_NAME="ven-aks-dev"
 
 # Define the namespace
-NAMESPACE="dev"
+NAMESPACE="qa"
 
 # Login to Azure using service principal
 az login --service-principal -u "$SP_APP_ID" -p "$SP_PASSWORD" --tenant "$TENANT_ID"

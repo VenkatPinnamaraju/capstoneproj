@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: ven-web-app-qa
-          image: venacraks.azurecr.io/vencapstoneproj:$(Build.BuildId)
+          image: venacraks.azurecr.io/venkatpinnamarajucapstoneproj:$(Build.BuildId)
           ports:
             - containerPort: 8080
           resources:

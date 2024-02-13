@@ -28,3 +28,4 @@ C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Debug\net8.0\refint\ca
 C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Debug\net8.0\capstoneproj.pdb
 C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Debug\net8.0\capstoneproj.genruntimeconfig.cache
 C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Debug\net8.0\ref\capstoneproj.dll
+C:\Users\venka\source\repos\capstoneproj\capstoneproj\obj\Debug\net8.0\capstoneproj.sourcelink.json

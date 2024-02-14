@@ -58,7 +58,7 @@ resource "azurerm_key_vault" "keyvault" {
       "List",
     ]
   }
-//depends_on = [ azurerm_kubernetes_cluster.ven1_aks ]
+depends_on = [ azurerm_kubernetes_cluster.ven1_aks ]
   
 }
 
@@ -84,7 +84,7 @@ resource "azurerm_kubernetes_cluster" "ven1_aks" {
     client_id     = "990b7bfc-6f00-48b1-941e-58476eeaf976"
     client_secret = azurerm_key_vault_secret.client-pwd.value
   }
-  //depends_on = [ azurerm_key_vault.keyvault, azurerm_key_vault_secret.client-pwd ]
+  depends_on = [ azurerm_key_vault.keyvault, azurerm_key_vault_secret.client-pwd ]
 }
 
 

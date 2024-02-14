@@ -8,7 +8,7 @@ variable "cluster_name" {
 
 variable "keyvault_name" {
   type        = string
-  description = "Key Vault name in Azure"
+  description = "Key Vault Secret name in Azure"
 }
 
 variable "secret_name" {

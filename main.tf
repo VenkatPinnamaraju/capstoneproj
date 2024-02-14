@@ -8,8 +8,8 @@ terraform {
   backend "azurerm" {
     resource_group_name = "ven-stg"
     storage_account_name = "venstg123"
-    container_name = "vencap"
-    key = "dev.terraform.tfstate"
+    container_name = "vencapproj"
+    key = "terraform.tfstate"
   }
 }
 
